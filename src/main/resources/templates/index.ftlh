@@ -34,7 +34,8 @@
 
     <div class="a_title">
         <a href="/create">Přidat nový příspěvek</a>
+        <a href="/edit_post/${post.slug}">Přidat nový příspěvek</a></td>
 </div>
-<td class="read-button"><a href="/edit_post/${post.slug}">EDIT</a></td>
+
 
 
