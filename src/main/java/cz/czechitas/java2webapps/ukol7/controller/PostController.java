@@ -7,6 +7,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import cz.czechitas.java2webapps.ukol7.entity.Post;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+
 
 @Controller
 @RequestMapping("/")
@@ -30,9 +34,12 @@ public class PostController {
         return new ModelAndView("detail")
                 .addObject("detail", postService.singlePost(slug));
 
+
     }
-
-
-
+    @PostMapping("/edit_post/{slug}")
+    public String updatePost(@PathVariable("slug") String slug, @ModelAttribute Post updatedPost) {
+        postService.updatePost(slug, updatedPost);
+        return "redirect:/";
+    }
 
 }

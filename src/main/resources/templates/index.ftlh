@@ -1,6 +1,6 @@
 [#ftl]
 
-[@c.page title="Blog Hedviky D."]
+<title> Blog Hedviky D. </title>
     <br><br>
     <h1 class="display-5 fw-bold text-body-emphasis">Vítejte!</h1><br><br>
 
@@ -16,7 +16,7 @@
         </tr>
         </thead>
         <tbody>
-        [#list posts.content as post]
+        [#list index.content as post]
             <tr>
                 <td>${post.title}</td>
                 <td>${post.perex?no_esc}</td>
@@ -32,4 +32,9 @@
         </tbody>
     </table>
 
-[/@c.page]
+    <div class="a_title">
+        <a href="/create">Přidat nový příspěvek</a>
+</div>
+<td class="read-button"><a href="/edit_post/${post.slug}">EDIT</a></td>
+
+

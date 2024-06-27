@@ -25,4 +25,14 @@ public class PostService {
     public Post singlePost(String slug) {
         return postRepository.findBySlug(slug).orElse(null);
     }
+    public void updatePost(String slug, Post updatedPost) {
+        Post post = postRepository.findBySlug(slug).orElse(null);
+        if (post != null) {
+            post.setTitle(updatedPost.getTitle());
+            post.setPerex(updatedPost.getPerex());
+            post.setBody(updatedPost.getBody());
+            postRepository.save(post);
+        }
+    }
+
 }
